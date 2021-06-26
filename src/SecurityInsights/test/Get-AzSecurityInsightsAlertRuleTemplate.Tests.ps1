@@ -12,12 +12,15 @@ while(-not $mockingPath) {
 . ($mockingPath | Select-Object -First 1).FullName
 
 Describe 'Get-AzSecurityInsightsAlertRuleTemplate' {
-    It 'List' -skip {
-        { throw [System.NotImplementedException] } | Should -Not -Throw
+    It 'List'  {
+        $AlertRuleTemplates = Get-AzSentinelAlertRuleTemplate -ResourceGroupName $env.RGName -WorkspaceName $env.WorkspaceName
+        $AlertRuleTemplates.Count | Should -BeGreaterOrEqual 1
     }
 
-    It 'Get' -skip {
-        { throw [System.NotImplementedException] } | Should -Not -Throw
+    It 'Get' {
+        $FusionAlertRule = Get-AzSentinelAlertRuleTemplate -ResourceGroupName $env.RGName -WorkspaceName $env.WorkspaceName | where {$_.Kind -eq "Fusion"}
+        $AlertRuleTemplate = Get-AzSentinelAlertRuleTemplate -ResourceGroupName $env.RGName -WorkspaceName $env.WorkspaceName -Id $FusionAlertRule.Name
+        $AlertRuleTemplate.Kind | Should -Be "Fusion"
     }
 
     It 'GetViaIdentity' -skip {

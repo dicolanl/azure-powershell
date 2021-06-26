@@ -32,11 +32,11 @@ Gets an incident.
 ### [Get-AzSentinelIncidentComment](Get-AzSentinelIncidentComment.md)
 Gets an incident comment.
 
+### [New-AzSentinelAction](New-AzSentinelAction.md)
+Creates or updates the action of alert rule.
+
 ### [New-AzSentinelAlertRule](New-AzSentinelAlertRule.md)
 
-
-### [New-AzSentinelAlertRuleAction](New-AzSentinelAlertRuleAction.md)
-Creates or updates the action of alert rule.
 
 ### [New-AzSentinelBookmark](New-AzSentinelBookmark.md)
 Creates or updates the bookmark.
@@ -50,11 +50,11 @@ Creates or updates the incident.
 ### [New-AzSentinelIncidentComment](New-AzSentinelIncidentComment.md)
 Creates the incident comment.
 
+### [Remove-AzSentinelAction](Remove-AzSentinelAction.md)
+Delete the action of alert rule.
+
 ### [Remove-AzSentinelAlertRule](Remove-AzSentinelAlertRule.md)
 Delete the alert rule.
-
-### [Remove-AzSentinelAlertRuleAction](Remove-AzSentinelAlertRuleAction.md)
-Delete the action of alert rule.
 
 ### [Remove-AzSentinelBookmark](Remove-AzSentinelBookmark.md)
 Delete the bookmark.
@@ -65,11 +65,11 @@ Delete the data connector.
 ### [Remove-AzSentinelIncident](Remove-AzSentinelIncident.md)
 Delete the incident.
 
+### [Set-AzSentinelAction](Set-AzSentinelAction.md)
+Creates or updates the action of alert rule.
+
 ### [Set-AzSentinelAlertRule](Set-AzSentinelAlertRule.md)
 Creates or updates the alert rule.
-
-### [Set-AzSentinelAlertRuleAction](Set-AzSentinelAlertRuleAction.md)
-Creates or updates the action of alert rule.
 
 ### [Set-AzSentinelBookmark](Set-AzSentinelBookmark.md)
 Creates or updates the bookmark.

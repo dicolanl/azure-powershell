@@ -20,7 +20,7 @@ Get-AzSentinelAlertRuleAction -ResourceGroupName <String> -RuleId <String> -Work
 
 ### Get
 ```
-Get-AzSentinelAlertRuleAction -ActionId <String> -ResourceGroupName <String> -RuleId <String>
+Get-AzSentinelAlertRuleAction -Id <String> -ResourceGroupName <String> -RuleId <String>
  -WorkspaceName <String> [-SubscriptionId <String[]>] [-DefaultProfile <PSObject>] [<CommonParameters>]
 ```
 
@@ -55,21 +55,6 @@ PS C:\> {{ Add code here }}
 
 ## PARAMETERS
 
-### -ActionId
-Action ID
-
-```yaml
-Type: System.String
-Parameter Sets: Get
-Aliases:
-
-Required: True
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
 ### -DefaultProfile
 The credentials, account, tenant, and subscription used for communication with Azure.
 
@@ -79,6 +64,21 @@ Parameter Sets: (All)
 Aliases: AzureRMContext, AzureCredential
 
 Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -Id
+Action ID
+
+```yaml
+Type: System.String
+Parameter Sets: Get
+Aliases: ActionId
+
+Required: True
 Position: Named
 Default value: None
 Accept pipeline input: False

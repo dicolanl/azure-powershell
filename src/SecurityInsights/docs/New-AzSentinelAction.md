@@ -1,32 +1,33 @@
 ---
 external help file:
 Module Name: Az.SecurityInsights
-online version: https://docs.microsoft.com/en-us/powershell/module/az.securityinsights/remove-azsentinelalertruleaction
+online version: https://docs.microsoft.com/en-us/powershell/module/az.securityinsights/new-azsentinelaction
 schema: 2.0.0
 ---
 
-# Remove-AzSentinelAlertRuleAction
+# New-AzSentinelAction
 
 ## SYNOPSIS
-Delete the action of alert rule.
+Creates or updates the action of alert rule.
 
 ## SYNTAX
 
-### Delete (Default)
+### CreateExpanded (Default)
 ```
-Remove-AzSentinelAlertRuleAction -ActionId <String> -ResourceGroupName <String> -RuleId <String>
- -WorkspaceName <String> [-SubscriptionId <String>] [-DefaultProfile <PSObject>] [-PassThru] [-Confirm]
- [-WhatIf] [<CommonParameters>]
+New-AzSentinelAction -Id <String> -ResourceGroupName <String> -RuleId <String> -WorkspaceName <String>
+ [-SubscriptionId <String>] [-Etag <String>] [-LogicAppResourceId <String>] [-TriggerUri <String>]
+ [-DefaultProfile <PSObject>] [-Confirm] [-WhatIf] [<CommonParameters>]
 ```
 
-### DeleteViaIdentity
+### Create
 ```
-Remove-AzSentinelAlertRuleAction -InputObject <ISecurityInsightsIdentity> [-DefaultProfile <PSObject>]
- [-PassThru] [-Confirm] [-WhatIf] [<CommonParameters>]
+New-AzSentinelAction -Id <String> -ResourceGroupName <String> -RuleId <String> -WorkspaceName <String>
+ -Action <IActionRequest> [-SubscriptionId <String>] [-DefaultProfile <PSObject>] [-Confirm] [-WhatIf]
+ [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-Delete the action of alert rule.
+Creates or updates the action of alert rule.
 
 ## EXAMPLES
 
@@ -50,18 +51,19 @@ PS C:\> {{ Add code here }}
 
 ## PARAMETERS
 
-### -ActionId
-Action ID
+### -Action
+Action for alert rule.
+To construct, see NOTES section for ACTION properties and create a hash table.
 
 ```yaml
-Type: System.String
-Parameter Sets: Delete
+Type: Microsoft.Azure.PowerShell.Cmdlets.SecurityInsights.Models.Api202001.IActionRequest
+Parameter Sets: Create
 Aliases:
 
 Required: True
 Position: Named
 Default value: None
-Accept pipeline input: False
+Accept pipeline input: True (ByValue)
 Accept wildcard characters: False
 ```
 
@@ -80,28 +82,42 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -InputObject
-Identity Parameter
-To construct, see NOTES section for INPUTOBJECT properties and create a hash table.
+### -Etag
+Etag of the azure resource
 
 ```yaml
-Type: Microsoft.Azure.PowerShell.Cmdlets.SecurityInsights.Models.ISecurityInsightsIdentity
-Parameter Sets: DeleteViaIdentity
+Type: System.String
+Parameter Sets: CreateExpanded
 Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -Id
+Action ID
+
+```yaml
+Type: System.String
+Parameter Sets: (All)
+Aliases: ActionId
 
 Required: True
 Position: Named
 Default value: None
-Accept pipeline input: True (ByValue)
+Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -PassThru
-Returns true when the command succeeds
+### -LogicAppResourceId
+Logic App Resource Id, /subscriptions/{my-subscription}/resourceGroups/{my-resource-group}/providers/Microsoft.Logic/workflows/{my-workflow-id}.
 
 ```yaml
-Type: System.Management.Automation.SwitchParameter
-Parameter Sets: (All)
+Type: System.String
+Parameter Sets: CreateExpanded
 Aliases:
 
 Required: False
@@ -117,7 +133,7 @@ The name is case insensitive.
 
 ```yaml
 Type: System.String
-Parameter Sets: Delete
+Parameter Sets: (All)
 Aliases:
 
 Required: True
@@ -132,7 +148,7 @@ Alert rule ID
 
 ```yaml
 Type: System.String
-Parameter Sets: Delete
+Parameter Sets: (All)
 Aliases:
 
 Required: True
@@ -147,7 +163,7 @@ Azure subscription ID
 
 ```yaml
 Type: System.String
-Parameter Sets: Delete
+Parameter Sets: (All)
 Aliases:
 
 Required: False
@@ -157,12 +173,27 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
+### -TriggerUri
+Logic App Callback URL for this specific workflow.
+
+```yaml
+Type: System.String
+Parameter Sets: CreateExpanded
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
 ### -WorkspaceName
 The name of the workspace.
 
 ```yaml
 Type: System.String
-Parameter Sets: Delete
+Parameter Sets: (All)
 Aliases:
 
 Required: True
@@ -208,11 +239,11 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## INPUTS
 
-### Microsoft.Azure.PowerShell.Cmdlets.SecurityInsights.Models.ISecurityInsightsIdentity
+### Microsoft.Azure.PowerShell.Cmdlets.SecurityInsights.Models.Api202001.IActionRequest
 
 ## OUTPUTS
 
-### System.Boolean
+### Microsoft.Azure.PowerShell.Cmdlets.SecurityInsights.Models.Api202001.IActionResponse
 
 ## NOTES
 
@@ -223,18 +254,10 @@ COMPLEX PARAMETER PROPERTIES
 To create the parameters described below, construct a hash table containing the appropriate properties. For information on hash tables, run Get-Help about_Hash_Tables.
 
 
-INPUTOBJECT <ISecurityInsightsIdentity>: Identity Parameter
-  - `[ActionId <String>]`: Action ID
-  - `[AlertRuleTemplateId <String>]`: Alert rule template ID
-  - `[BookmarkId <String>]`: Bookmark ID
-  - `[DataConnectorId <String>]`: Connector ID
-  - `[Id <String>]`: Resource identity path
-  - `[IncidentCommentId <String>]`: Incident comment ID
-  - `[IncidentId <String>]`: Incident ID
-  - `[ResourceGroupName <String>]`: The name of the resource group within the user's subscription. The name is case insensitive.
-  - `[RuleId <String>]`: Alert rule ID
-  - `[SubscriptionId <String>]`: Azure subscription ID
-  - `[WorkspaceName <String>]`: The name of the workspace.
+ACTION <IActionRequest>: Action for alert rule.
+  - `[Etag <String>]`: Etag of the azure resource
+  - `[LogicAppResourceId <String>]`: Logic App Resource Id, /subscriptions/{my-subscription}/resourceGroups/{my-resource-group}/providers/Microsoft.Logic/workflows/{my-workflow-id}.
+  - `[TriggerUri <String>]`: Logic App Callback URL for this specific workflow.
 
 ## RELATED LINKS
 

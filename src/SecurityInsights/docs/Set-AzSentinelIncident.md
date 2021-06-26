@@ -424,9 +424,6 @@ To create the parameters described below, construct a hash table containing the 
 
 
 INCIDENT <IIncident>: Represents an incident in Azure Security Insights.
-  - `Severity <IncidentSeverity>`: The severity of the incident
-  - `Status <IncidentStatus>`: The status of the incident
-  - `Title <String>`: The title of the incident
   - `[Etag <String>]`: Etag of the azure resource
   - `[Classification <IncidentClassification?>]`: The reason the incident was closed
   - `[ClassificationComment <String>]`: Describes the reason the incident was closed
@@ -440,6 +437,9 @@ INCIDENT <IIncident>: Represents an incident in Azure Security Insights.
   - `[OwnerEmail <String>]`: The email of the user the incident is assigned to.
   - `[OwnerObjectId <String>]`: The object id of the user the incident is assigned to.
   - `[OwnerUserPrincipalName <String>]`: The user principal name of the user the incident is assigned to.
+  - `[Severity <IncidentSeverity?>]`: The severity of the incident
+  - `[Status <IncidentStatus?>]`: The status of the incident
+  - `[Title <String>]`: The title of the incident
 
 LABEL <IIncidentLabel[]>: List of labels relevant to this incident
   - `LabelName <String>`: The name of the label

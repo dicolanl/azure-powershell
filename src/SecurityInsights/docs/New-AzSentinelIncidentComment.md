@@ -15,9 +15,8 @@ Creates the incident comment.
 ### CreateExpanded (Default)
 ```
 New-AzSentinelIncidentComment -Id <String> -IncidentId <String> -ResourceGroupName <String>
- -WorkspaceName <String> [-SubscriptionId <String>] [-AuthorEmail <String>] [-AuthorName <String>]
- [-AuthorObjectId <String>] [-AuthorUserPrincipalName <String>] [-Message <String>]
- [-DefaultProfile <PSObject>] [-Confirm] [-WhatIf] [<CommonParameters>]
+ -WorkspaceName <String> [-SubscriptionId <String>] [-Message <String>] [-DefaultProfile <PSObject>]
+ [-Confirm] [-WhatIf] [<CommonParameters>]
 ```
 
 ### Create
@@ -51,66 +50,6 @@ PS C:\> {{ Add code here }}
 {{ Add description here }}
 
 ## PARAMETERS
-
-### -AuthorEmail
-The email of the client.
-
-```yaml
-Type: System.String
-Parameter Sets: CreateExpanded
-Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -AuthorName
-The name of the client.
-
-```yaml
-Type: System.String
-Parameter Sets: CreateExpanded
-Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -AuthorObjectId
-The object id of the client.
-
-```yaml
-Type: System.String
-Parameter Sets: CreateExpanded
-Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
-### -AuthorUserPrincipalName
-The user principal name of the client.
-
-```yaml
-Type: System.String
-Parameter Sets: CreateExpanded
-Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
 
 ### -DefaultProfile
 The credentials, account, tenant, and subscription used for communication with Azure.
@@ -286,11 +225,11 @@ To create the parameters described below, construct a hash table containing the 
 
 
 INCIDENTCOMMENT <IIncidentComment>: Represents an incident comment
-  - `Message <String>`: The comment message
   - `[AuthorEmail <String>]`: The email of the client.
   - `[AuthorName <String>]`: The name of the client.
   - `[AuthorObjectId <String>]`: The object id of the client.
   - `[AuthorUserPrincipalName <String>]`: The user principal name of the client.
+  - `[Message <String>]`: The comment message
 
 ## RELATED LINKS
 

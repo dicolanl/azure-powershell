@@ -1,29 +1,29 @@
 ---
 external help file:
 Module Name: Az.SecurityInsights
-online version: https://docs.microsoft.com/en-us/powershell/module/az.securityinsights/new-azsentinelalertruleaction
+online version: https://docs.microsoft.com/en-us/powershell/module/az.securityinsights/set-azsentinelaction
 schema: 2.0.0
 ---
 
-# New-AzSentinelAlertRuleAction
+# Set-AzSentinelAction
 
 ## SYNOPSIS
 Creates or updates the action of alert rule.
 
 ## SYNTAX
 
-### CreateExpanded (Default)
+### UpdateExpanded (Default)
 ```
-New-AzSentinelAlertRuleAction -ActionId <String> -ResourceGroupName <String> -RuleId <String>
- -WorkspaceName <String> [-SubscriptionId <String>] [-Etag <String>] [-LogicAppResourceId <String>]
- [-TriggerUri <String>] [-DefaultProfile <PSObject>] [-Confirm] [-WhatIf] [<CommonParameters>]
+Set-AzSentinelAction -Id <String> -ResourceGroupName <String> -RuleId <String> -WorkspaceName <String>
+ [-SubscriptionId <String>] [-Etag <String>] [-LogicAppResourceId <String>] [-TriggerUri <String>]
+ [-DefaultProfile <PSObject>] [-Confirm] [-WhatIf] [<CommonParameters>]
 ```
 
-### Create
+### Update
 ```
-New-AzSentinelAlertRuleAction -ActionId <String> -ResourceGroupName <String> -RuleId <String>
- -WorkspaceName <String> -Action <IActionRequest> [-SubscriptionId <String>] [-DefaultProfile <PSObject>]
- [-Confirm] [-WhatIf] [<CommonParameters>]
+Set-AzSentinelAction -Id <String> -ResourceGroupName <String> -RuleId <String> -WorkspaceName <String>
+ -Action <IActionRequest> [-SubscriptionId <String>] [-DefaultProfile <PSObject>] [-Confirm] [-WhatIf]
+ [<CommonParameters>]
 ```
 
 ## DESCRIPTION
@@ -57,28 +57,13 @@ To construct, see NOTES section for ACTION properties and create a hash table.
 
 ```yaml
 Type: Microsoft.Azure.PowerShell.Cmdlets.SecurityInsights.Models.Api202001.IActionRequest
-Parameter Sets: Create
+Parameter Sets: Update
 Aliases:
 
 Required: True
 Position: Named
 Default value: None
 Accept pipeline input: True (ByValue)
-Accept wildcard characters: False
-```
-
-### -ActionId
-Action ID
-
-```yaml
-Type: System.String
-Parameter Sets: (All)
-Aliases:
-
-Required: True
-Position: Named
-Default value: None
-Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
@@ -102,10 +87,25 @@ Etag of the azure resource
 
 ```yaml
 Type: System.String
-Parameter Sets: CreateExpanded
+Parameter Sets: UpdateExpanded
 Aliases:
 
 Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -Id
+Action ID
+
+```yaml
+Type: System.String
+Parameter Sets: (All)
+Aliases: ActionId
+
+Required: True
 Position: Named
 Default value: None
 Accept pipeline input: False
@@ -117,7 +117,7 @@ Logic App Resource Id, /subscriptions/{my-subscription}/resourceGroups/{my-resou
 
 ```yaml
 Type: System.String
-Parameter Sets: CreateExpanded
+Parameter Sets: UpdateExpanded
 Aliases:
 
 Required: False
@@ -178,7 +178,7 @@ Logic App Callback URL for this specific workflow.
 
 ```yaml
 Type: System.String
-Parameter Sets: CreateExpanded
+Parameter Sets: UpdateExpanded
 Aliases:
 
 Required: False
@@ -255,8 +255,8 @@ To create the parameters described below, construct a hash table containing the 
 
 
 ACTION <IActionRequest>: Action for alert rule.
-  - `LogicAppResourceId <String>`: Logic App Resource Id, /subscriptions/{my-subscription}/resourceGroups/{my-resource-group}/providers/Microsoft.Logic/workflows/{my-workflow-id}.
   - `[Etag <String>]`: Etag of the azure resource
+  - `[LogicAppResourceId <String>]`: Logic App Resource Id, /subscriptions/{my-subscription}/resourceGroups/{my-resource-group}/providers/Microsoft.Logic/workflows/{my-workflow-id}.
   - `[TriggerUri <String>]`: Logic App Callback URL for this specific workflow.
 
 ## RELATED LINKS

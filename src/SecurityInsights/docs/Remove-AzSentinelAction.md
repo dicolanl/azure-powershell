@@ -1,33 +1,31 @@
 ---
 external help file:
 Module Name: Az.SecurityInsights
-online version: https://docs.microsoft.com/en-us/powershell/module/az.securityinsights/set-azsentinelalertruleaction
+online version: https://docs.microsoft.com/en-us/powershell/module/az.securityinsights/remove-azsentinelaction
 schema: 2.0.0
 ---
 
-# Set-AzSentinelAlertRuleAction
+# Remove-AzSentinelAction
 
 ## SYNOPSIS
-Creates or updates the action of alert rule.
+Delete the action of alert rule.
 
 ## SYNTAX
 
-### UpdateExpanded (Default)
+### Delete (Default)
 ```
-Set-AzSentinelAlertRuleAction -ActionId <String> -ResourceGroupName <String> -RuleId <String>
- -WorkspaceName <String> [-SubscriptionId <String>] [-Etag <String>] [-LogicAppResourceId <String>]
- [-TriggerUri <String>] [-DefaultProfile <PSObject>] [-Confirm] [-WhatIf] [<CommonParameters>]
+Remove-AzSentinelAction -Id <String> -ResourceGroupName <String> -RuleId <String> -WorkspaceName <String>
+ [-SubscriptionId <String>] [-DefaultProfile <PSObject>] [-PassThru] [-Confirm] [-WhatIf] [<CommonParameters>]
 ```
 
-### Update
+### DeleteViaIdentity
 ```
-Set-AzSentinelAlertRuleAction -ActionId <String> -ResourceGroupName <String> -RuleId <String>
- -WorkspaceName <String> -Action <IActionRequest> [-SubscriptionId <String>] [-DefaultProfile <PSObject>]
+Remove-AzSentinelAction -InputObject <ISecurityInsightsIdentity> [-DefaultProfile <PSObject>] [-PassThru]
  [-Confirm] [-WhatIf] [<CommonParameters>]
 ```
 
 ## DESCRIPTION
-Creates or updates the action of alert rule.
+Delete the action of alert rule.
 
 ## EXAMPLES
 
@@ -51,37 +49,6 @@ PS C:\> {{ Add code here }}
 
 ## PARAMETERS
 
-### -Action
-Action for alert rule.
-To construct, see NOTES section for ACTION properties and create a hash table.
-
-```yaml
-Type: Microsoft.Azure.PowerShell.Cmdlets.SecurityInsights.Models.Api202001.IActionRequest
-Parameter Sets: Update
-Aliases:
-
-Required: True
-Position: Named
-Default value: None
-Accept pipeline input: True (ByValue)
-Accept wildcard characters: False
-```
-
-### -ActionId
-Action ID
-
-```yaml
-Type: System.String
-Parameter Sets: (All)
-Aliases:
-
-Required: True
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
 ### -DefaultProfile
 The credentials, account, tenant, and subscription used for communication with Azure.
 
@@ -97,27 +64,43 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -Etag
-Etag of the azure resource
+### -Id
+Action ID
 
 ```yaml
 Type: System.String
-Parameter Sets: UpdateExpanded
-Aliases:
+Parameter Sets: Delete
+Aliases: ActionId
 
-Required: False
+Required: True
 Position: Named
 Default value: None
 Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -LogicAppResourceId
-Logic App Resource Id, /subscriptions/{my-subscription}/resourceGroups/{my-resource-group}/providers/Microsoft.Logic/workflows/{my-workflow-id}.
+### -InputObject
+Identity Parameter
+To construct, see NOTES section for INPUTOBJECT properties and create a hash table.
 
 ```yaml
-Type: System.String
-Parameter Sets: UpdateExpanded
+Type: Microsoft.Azure.PowerShell.Cmdlets.SecurityInsights.Models.ISecurityInsightsIdentity
+Parameter Sets: DeleteViaIdentity
+Aliases:
+
+Required: True
+Position: Named
+Default value: None
+Accept pipeline input: True (ByValue)
+Accept wildcard characters: False
+```
+
+### -PassThru
+Returns true when the command succeeds
+
+```yaml
+Type: System.Management.Automation.SwitchParameter
+Parameter Sets: (All)
 Aliases:
 
 Required: False
@@ -133,7 +116,7 @@ The name is case insensitive.
 
 ```yaml
 Type: System.String
-Parameter Sets: (All)
+Parameter Sets: Delete
 Aliases:
 
 Required: True
@@ -148,7 +131,7 @@ Alert rule ID
 
 ```yaml
 Type: System.String
-Parameter Sets: (All)
+Parameter Sets: Delete
 Aliases:
 
 Required: True
@@ -163,7 +146,7 @@ Azure subscription ID
 
 ```yaml
 Type: System.String
-Parameter Sets: (All)
+Parameter Sets: Delete
 Aliases:
 
 Required: False
@@ -173,27 +156,12 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
-### -TriggerUri
-Logic App Callback URL for this specific workflow.
-
-```yaml
-Type: System.String
-Parameter Sets: UpdateExpanded
-Aliases:
-
-Required: False
-Position: Named
-Default value: None
-Accept pipeline input: False
-Accept wildcard characters: False
-```
-
 ### -WorkspaceName
 The name of the workspace.
 
 ```yaml
 Type: System.String
-Parameter Sets: (All)
+Parameter Sets: Delete
 Aliases:
 
 Required: True
@@ -239,11 +207,11 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## INPUTS
 
-### Microsoft.Azure.PowerShell.Cmdlets.SecurityInsights.Models.Api202001.IActionRequest
+### Microsoft.Azure.PowerShell.Cmdlets.SecurityInsights.Models.ISecurityInsightsIdentity
 
 ## OUTPUTS
 
-### Microsoft.Azure.PowerShell.Cmdlets.SecurityInsights.Models.Api202001.IActionResponse
+### System.Boolean
 
 ## NOTES
 
@@ -254,10 +222,18 @@ COMPLEX PARAMETER PROPERTIES
 To create the parameters described below, construct a hash table containing the appropriate properties. For information on hash tables, run Get-Help about_Hash_Tables.
 
 
-ACTION <IActionRequest>: Action for alert rule.
-  - `LogicAppResourceId <String>`: Logic App Resource Id, /subscriptions/{my-subscription}/resourceGroups/{my-resource-group}/providers/Microsoft.Logic/workflows/{my-workflow-id}.
-  - `[Etag <String>]`: Etag of the azure resource
-  - `[TriggerUri <String>]`: Logic App Callback URL for this specific workflow.
+INPUTOBJECT <ISecurityInsightsIdentity>: Identity Parameter
+  - `[ActionId <String>]`: Action ID
+  - `[AlertRuleTemplateId <String>]`: Alert rule template ID
+  - `[BookmarkId <String>]`: Bookmark ID
+  - `[DataConnectorId <String>]`: Connector ID
+  - `[Id <String>]`: Resource identity path
+  - `[IncidentCommentId <String>]`: Incident comment ID
+  - `[IncidentId <String>]`: Incident ID
+  - `[ResourceGroupName <String>]`: The name of the resource group within the user's subscription. The name is case insensitive.
+  - `[RuleId <String>]`: Alert rule ID
+  - `[SubscriptionId <String>]`: Azure subscription ID
+  - `[WorkspaceName <String>]`: The name of the workspace.
 
 ## RELATED LINKS
 

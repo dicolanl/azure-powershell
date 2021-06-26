@@ -11,7 +11,7 @@
   DotNetFrameworkVersion = '4.7.2'
   RequiredAssemblies = './bin/Az.SecurityInsights.private.dll'
   FormatsToProcess = './Az.SecurityInsights.format.ps1xml'
-  FunctionsToExport = 'Get-AzSentinelAlertRule', 'Get-AzSentinelAlertRuleAction', 'Get-AzSentinelAlertRuleTemplate', 'Get-AzSentinelBookmark', 'Get-AzSentinelDataConnector', 'Get-AzSentinelIncident', 'Get-AzSentinelIncidentComment', 'New-AzSentinelAlertRule', 'New-AzSentinelAlertRuleAction', 'New-AzSentinelBookmark', 'New-AzSentinelDataConnector', 'New-AzSentinelIncident', 'New-AzSentinelIncidentComment', 'Remove-AzSentinelAlertRule', 'Remove-AzSentinelAlertRuleAction', 'Remove-AzSentinelBookmark', 'Remove-AzSentinelDataConnector', 'Remove-AzSentinelIncident', 'Set-AzSentinelAlertRule', 'Set-AzSentinelAlertRuleAction', 'Set-AzSentinelBookmark', 'Set-AzSentinelDataConnector', 'Set-AzSentinelIncident', '*'
+  FunctionsToExport = 'Get-AzSentinelAlertRule', 'Get-AzSentinelAlertRuleAction', 'Get-AzSentinelAlertRuleTemplate', 'Get-AzSentinelBookmark', 'Get-AzSentinelDataConnector', 'Get-AzSentinelIncident', 'Get-AzSentinelIncidentComment', 'New-AzSentinelAction', 'New-AzSentinelAlertRule', 'New-AzSentinelBookmark', 'New-AzSentinelDataConnector', 'New-AzSentinelIncident', 'New-AzSentinelIncidentComment', 'Remove-AzSentinelAction', 'Remove-AzSentinelAlertRule', 'Remove-AzSentinelBookmark', 'Remove-AzSentinelDataConnector', 'Remove-AzSentinelIncident', 'Set-AzSentinelAction', 'Set-AzSentinelAlertRule', 'Set-AzSentinelBookmark', 'Set-AzSentinelDataConnector', 'Set-AzSentinelIncident', '*'
   AliasesToExport = '*'
   PrivateData = @{
     PSData = @{

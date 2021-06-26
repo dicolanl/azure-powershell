@@ -16,10 +16,11 @@ Creates or updates the bookmark.
 ```
 New-AzSentinelBookmark -Id <String> -ResourceGroupName <String> -WorkspaceName <String>
  [-SubscriptionId <String>] [-Created <DateTime>] [-CreatedByObjectId <String>] [-DisplayName <String>]
- [-Etag <String>] [-IncidentInfoIncidentId <String>] [-IncidentInfoRelationName <String>]
- [-IncidentInfoSeverity <CaseSeverity>] [-IncidentInfoTitle <String>] [-Label <String[]>] [-Note <String>]
- [-Query <String>] [-QueryResult <String>] [-Updated <DateTime>] [-UpdatedByObjectId <String>]
- [-DefaultProfile <PSObject>] [-Confirm] [-WhatIf] [<CommonParameters>]
+ [-Etag <String>] [-EventTime <DateTime>] [-IncidentInfoIncidentId <String>]
+ [-IncidentInfoRelationName <String>] [-IncidentInfoSeverity <CaseSeverity>] [-IncidentInfoTitle <String>]
+ [-Label <String[]>] [-Note <String>] [-Query <String>] [-QueryEndTime <DateTime>] [-QueryResult <String>]
+ [-QueryStartTime <DateTime>] [-Updated <DateTime>] [-UpdatedByObjectId <String>] [-DefaultProfile <PSObject>]
+ [-Confirm] [-WhatIf] [<CommonParameters>]
 ```
 
 ### Create
@@ -134,6 +135,21 @@ Etag of the azure resource
 
 ```yaml
 Type: System.String
+Parameter Sets: CreateExpanded
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -EventTime
+The bookmark event time
+
+```yaml
+Type: System.DateTime
 Parameter Sets: CreateExpanded
 Aliases:
 
@@ -264,11 +280,41 @@ Accept pipeline input: False
 Accept wildcard characters: False
 ```
 
+### -QueryEndTime
+The end time for the query
+
+```yaml
+Type: System.DateTime
+Parameter Sets: CreateExpanded
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
 ### -QueryResult
 The query result of the bookmark.
 
 ```yaml
 Type: System.String
+Parameter Sets: CreateExpanded
+Aliases:
+
+Required: False
+Position: Named
+Default value: None
+Accept pipeline input: False
+Accept wildcard characters: False
+```
+
+### -QueryStartTime
+The start time for the query
+
+```yaml
+Type: System.DateTime
 Parameter Sets: CreateExpanded
 Aliases:
 
@@ -407,20 +453,23 @@ To create the parameters described below, construct a hash table containing the 
 
 
 BOOKMARK <IBookmark>: Represents a bookmark in Azure Security Insights.
-  - `CreatedByObjectId <String>`: The object id of the user.
-  - `DisplayName <String>`: The display name of the bookmark
-  - `IncidentInfoIncidentId <String>`: Incident Id
-  - `IncidentInfoRelationName <String>`: Relation Name
-  - `IncidentInfoSeverity <CaseSeverity>`: The severity of the incident
-  - `IncidentInfoTitle <String>`: The title of the incident
-  - `Query <String>`: The query of the bookmark.
-  - `UpdatedByObjectId <String>`: The object id of the user.
   - `[Etag <String>]`: Etag of the azure resource
   - `[Created <DateTime?>]`: The time the bookmark was created
+  - `[CreatedByObjectId <String>]`: The object id of the user.
+  - `[DisplayName <String>]`: The display name of the bookmark
+  - `[EventTime <DateTime?>]`: The bookmark event time
+  - `[IncidentInfoIncidentId <String>]`: Incident Id
+  - `[IncidentInfoRelationName <String>]`: Relation Name
+  - `[IncidentInfoSeverity <CaseSeverity?>]`: The severity of the incident
+  - `[IncidentInfoTitle <String>]`: The title of the incident
   - `[Label <String[]>]`: List of labels relevant to this bookmark
   - `[Note <String>]`: The notes of the bookmark
+  - `[Query <String>]`: The query of the bookmark.
+  - `[QueryEndTime <DateTime?>]`: The end time for the query
   - `[QueryResult <String>]`: The query result of the bookmark.
+  - `[QueryStartTime <DateTime?>]`: The start time for the query
   - `[Updated <DateTime?>]`: The last time the bookmark was updated
+  - `[UpdatedByObjectId <String>]`: The object id of the user.
 
 ## RELATED LINKS
 
